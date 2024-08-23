@@ -1,0 +1,83 @@
+.logo {
+    height: 22px;
+    width: 136px;
+}
+
+.menu-icon {
+    display: none;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.elements {
+    display: flex;
+    justify-content: space-between;
+    gap: 21px;
+    margin-top: 5px;
+    list-style: none;
+}
+
+.elements li a {
+    font-family: sans-serif;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
+    color: black;
+}
+
+.location-icon {
+    color: rgba(255, 0, 0, 0.685);
+    font-size: 28px;
+}
+
+.account-icon {
+    color: gray;
+    font-size: 28px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    align-items: center;
+}
+
+.navbarContainer {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 21px;
+}
+
+.search {
+    height: 25px;
+}
+.section{
+    width: 1177px;
+    height: 204px;
+    background-color: red;
+}
+/* Responsive Styles */
+@media (max-width: 800px) {  
+    .elements {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        position: absolute;
+        top: 40px;
+        left: 20px;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .elements.open {
+        display: flex;
+    }
+
+    .search {
+        width: 100%;
+    }
+}

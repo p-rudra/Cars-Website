@@ -1,0 +1,189 @@
+.description{
+    height:160px;
+    width: 992px;
+    display: block;
+    margin: auto;
+    font-family: sans-serif;
+    font-weight: lighter;
+
+}
+.newCarsHeading{
+    text-align: center;
+    color:#484848;
+    font-weight: bolder;
+}
+.newCarsTabs{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+.newCarsTabs button{
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-size: 15px;
+    font-weight: bold;
+}
+.buttonContainer{
+    width: 992px;
+    height: 166px;
+    background-color:#F9F9F9;
+    display: block;
+    margin:auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap:10px;
+    padding:20px 0px;
+}
+.ncTab.active{
+    border-bottom: 2px solid #00857A;
+    font-weight: bold;
+}
+a.element-tab{
+    background-color: #F9F9F9;
+    border: 1px solid black;
+    border-radius: 30px;
+    padding: 5px 25px;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+a.element-tab:hover{
+    border: 1px solid #00857A;
+    color:#00857A;
+}
+.fuel-type-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.fuel-type-item {
+    background-color: #F9F9F9;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+    width: 200px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+.fuel-type-container {
+    display: block;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px 0;
+    width: 992px;
+    height: 243;
+}
+.fuel-type-item:hover {
+    background-color: #E0E0E0;
+    border-color: #B0B0B0;
+}
+
+.fuel-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.fuel-label {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    font-family: sans-serif;
+}
+.transmission-container{
+    width: 992px;
+    height: 122px;
+    display: block;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px 0;
+}
+.transmission-label{
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    font-family: sans-serif;
+}
+.transmission-icon{
+    width: 40px;
+    height: 40px;
+}
+.transmission-type-item {
+    background-color: #F9F9F9;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+    width: 200px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+.transmission-type-item:hover {
+    background-color: #E0E0E0;
+    border-color: #B0B0B0;
+}
+
+.seating-type-container{
+    height: 98px;
+    width: 992px;
+    display: block;
+    margin: auto;   
+}
+.body-type-container{
+    width: 992px;
+    height: 122px;
+    display: block;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px 0;
+}
+.body-label{
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    font-family: sans-serif;
+}
+.body-icon{
+    width: 40px;
+    height: 40px;
+}
+.body-type-item{
+    background-color: #F9F9F9;
+    border: 1px solid #E0E0E0;
+    border-radius: 10px;
+    width: 200px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}

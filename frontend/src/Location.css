@@ -1,0 +1,71 @@
+.container{
+    background-color:white ;
+    border: 2px solid black;
+    width: 656px;
+    height: 552px;
+    border-radius: 6px;
+    display: block;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: flex-start;  
+    position: relative;
+    overflow-y: auto;
+}
+.heading{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 15px;
+}
+.heading button{
+    position: absolute;
+    left: 90%;
+    top:3%;
+    height: 50px;
+    width: 50px;
+    border-radius:50%;
+    font-size: 15px;
+    border: none;
+}
+.searchBar{
+   width: 25vw;
+   height: 5vh;
+   padding: 14px;
+   text-indent: 12px;
+   font-size: 15px;
+   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+.searchContainer{
+    display: flex;
+    position: relative;
+}
+.searchIcon{
+    height: 5vh;
+    display: flex;
+    position: absolute;
+    left: 1%;
+    justify-content: center;
+    align-items: center;
+}
+.btn{
+    width: 25vw;
+    height: 5vh;
+    text-align: left;
+    color: rgba(0, 0, 255, 0.789);
+    font-size:15px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.btn span{
+    padding-right: 11px;
+}
+.cities{
+    position: absolute;
+    top: 35%;
+    left: 18%;
+}
+.cities li{
+    list-style: none;
+    font-size: 18px;
+    font-weight: 200;
+    cursor: pointer;
+}
