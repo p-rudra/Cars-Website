@@ -56,3 +56,41 @@ def upcoming_cars(request):
     return JsonResponse(u_cars_list,safe=False)
 def newcars(request):
     return HttpResponse('Hello')
+
+
+def car_list(request):
+    budget = request.GET.get('budget')
+    fuel_type = request.GET.get('fuel_type')
+    transmission = request.GET.get('transmission')
+    seating_capacity = request.GET.get('seating_capacity')
+    body_type = request.GET.get('body_type')
+
+    cars=models.Car.objects.all()
+
+    if budget:
+        cars = cars.filter(price__lte=budget)
+    if fuel_type:
+        cars = cars.filter(fuel_type=fuel_type)
+    if transmission:
+        cars = cars.filter(transmission=transmission)
+    if seating_capacity:
+        cars = cars.filter(seating_capacity=seating_capacity)
+    if body_type:
+        cars = cars.filter(body_type=body_type)
+
+    cars_list = []
+    for car in cars:
+        cars_list.append(
+            {'name':car.name,
+             'price':car.price,
+             'fuel_type':car.fuel_type,
+             'transmission':car.transmission,
+             'seating_capacity':car.seating_capacity,
+             'body_type':car.body_type,
+             'car_image':car.car_image.url ,
+             'car_price':car.car_price,
+             'type':car.type
+             }
+        )
+
+    return JsonResponse(cars_list,safe=False)

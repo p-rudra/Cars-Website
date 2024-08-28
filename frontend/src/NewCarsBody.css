@@ -1,13 +1,19 @@
 .description{
-    height:160px;
-    width: 992px;
+    height:26.35px;
+    width: 90vw;
     display: block;
     margin: auto;
     font-family: sans-serif;
     font-weight: lighter;
 
 }
-.newCarsHeading{
+h2.newCarsHeading{
+    text-align: center;
+    color:#484848;
+    font-weight: bolder;
+}
+h3.newCarsHeading{
+    margin-top:100px;
     text-align: center;
     color:#484848;
     font-weight: bolder;
@@ -41,7 +47,7 @@
     border-bottom: 2px solid #00857A;
     font-weight: bold;
 }
-a.element-tab{
+button.element-tab{
     background-color: #F9F9F9;
     border: 1px solid black;
     border-radius: 30px;
@@ -53,7 +59,7 @@ a.element-tab{
     text-decoration: none;
     font-family: sans-serif;
 }
-a.element-tab:hover{
+button.element-tab:hover{
     border: 1px solid #00857A;
     color:#00857A;
 }
@@ -186,4 +192,84 @@ a.element-tab:hover{
     transition: all 0.3s ease;
     cursor: pointer;
     position: relative;
+}
+.submit-button{
+    border-radius: 99px;
+    height: 50px;
+    width: 100px;
+    display: block;
+    margin: auto;
+    cursor: pointer;
+    border:1px solid black ;
+}
+.submit-button:hover{
+    border: 1px solid #00857A;
+    color:#00857A;
+}
+.cars-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .car-item {
+    border: 1px solid #e0e0e0;
+    padding: 15px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .car-item:hover {
+    transform: translateY(-5px);
+  }
+  
+  .car-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 15px;
+  }
+  
+  h3 {
+    font-family: sans-serif;
+    margin: 10px 0;
+    font-size: 1.2rem;
+  }
+  
+  p {
+    font-family: sans-serif;
+    margin: 5px 0;
+    color: #555;
+  }
+@media (max-width:980px) {
+    h3.newCarsHeading{
+        margin-top: 300px;
+    }
+}
+@media (max-width:600px) {
+    .buttonContainer{
+        display: flex;
+        height: 992px;
+        flex-direction: column;
+    }
+    button.element-tab{
+        width: 80px;
+        height: 80px;
+    }
+    .body-type-container{
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+    }
+    .fuel-type-container{
+        height: 600px;
+        display: flex;
+        flex-direction: column;
+    }
+    .transmission-type-container{
+        height: 600px;
+        display: flex;
+        flex-direction: column;
+    }
 }
