@@ -3,6 +3,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.http import HttpResponse
 from django.http import JsonResponse
+from django.shortcuts import get_object_or_404
 from . import models
 # Create your views here.
 class HelloWorldView(APIView):
@@ -23,6 +24,17 @@ def featured_cars(request):
             'car_image':car.car_image.url,
             'launch_date':car.launch_date.strftime('%d-%b-%Y'),
             'on_road_price':car.on_road_price,
+            'ex_showroom_price':car.ex_showroom_price,
+            'individual_registration':car.individual_registration,
+            'insurance':car.insurance,
+            'other_charges':car.other_charges,
+            'fuel_type':car.fuel_type,
+            'transmission':car.transmission,
+            'seating_capacity':car.seating_capacity,
+            'battery_capacity':car.battery_capacity,
+            'driving_range':car.driving_range,
+            'mileage':car.mileage,
+            'engine':car.engine
         })
     return JsonResponse(cars_list,safe=False)
 
@@ -37,6 +49,17 @@ def popular_cars(request):
             'car_price':str(car.car_price),
             'car_image':car.car_image.url,
             'on_road_price':car.on_road_price,
+            'ex_showroom_price':car.ex_showroom_price,
+            'individual_registration':car.individual_registration,
+            'insurance':car.insurance,
+            'other_charges':car.other_charges,
+            'fuel_type':car.fuel_type,
+            'transmission':car.transmission,
+            'seating_capacity':car.seating_capacity,
+            'battery_capacity':car.battery_capacity,
+            'driving_range':car.driving_range,
+            'mileage':car.mileage,
+            'engine':car.engine
         })
     return JsonResponse(p_cars_list,safe=False)
 
@@ -52,6 +75,17 @@ def upcoming_cars(request):
             'car_image':car.car_image.url,
             'type':car.type,
             'on_road_price':car.on_road_price,
+            'ex_showroom_price':car.ex_showroom_price,
+            'individual_registration':car.individual_registration,
+            'insurance':car.insurance,
+            'other_charges':car.other_charges,
+            'fuel_type':car.fuel_type,
+            'transmission':car.transmission,
+            'seating_capacity':car.seating_capacity,
+            'battery_capacity':car.battery_capacity,
+            'driving_range':car.driving_range,
+            'mileage':car.mileage,
+            'engine':car.engine
         })
     return JsonResponse(u_cars_list,safe=False)
 def newcars(request):
@@ -94,3 +128,50 @@ def car_list(request):
         )
 
     return JsonResponse(cars_list,safe=False)
+
+
+
+def cars_detail(request,car_name):
+    car=get_object_or_404(models.FeaturedCar,car_name=car_name)
+    car_data={
+            'car_name': car.car_name,
+            'car_price':str(car.car_price),
+            'car_image':car.car_image.url,
+            'launch_date':car.launch_date.strftime('%d-%b-%Y'),
+            'on_road_price':car.on_road_price,
+            'ex_showroom_price':car.ex_showroom_price,
+            'individual_registration':car.individual_registration,
+            'insurance':car.insurance,
+            'other_charges':car.other_charges,
+            'fuel_type':car.fuel_type,
+            'transmission':car.transmission,
+            'seating_capacity':car.seating_capacity,
+            'battery_capacity':car.battery_capacity,
+            'driving_range':car.driving_range,
+            'mileage':car.mileage,
+            'engine':car.engine,
+            'description':car.description,
+        }
+    return JsonResponse(car_data)
+
+def p_car_details(request,car_name):
+    car=get_object_or_404(models.PopularCar,car_name=car_name)
+    car_data={
+            'car_name': car.car_name,
+            'car_price':str(car.car_price),
+            'car_image':car.car_image.url,
+            'on_road_price':car.on_road_price,
+            'ex_showroom_price':car.ex_showroom_price,
+            'individual_registration':car.individual_registration,
+            'insurance':car.insurance,
+            'other_charges':car.other_charges,
+            'fuel_type':car.fuel_type,
+            'transmission':car.transmission,
+            'seating_capacity':car.seating_capacity,
+            'battery_capacity':car.battery_capacity,
+            'driving_range':car.driving_range,
+            'mileage':car.mileage,
+            'engine':car.engine,
+            'description':car.description,
+        }
+    return JsonResponse(car_data)

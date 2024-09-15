@@ -1,0 +1,110 @@
+.detailedCarContainer{
+    width: 60vw;
+    display: block;
+    margin: auto;
+}
+.detailedCarContainer h2{
+    font-weight: bold;
+    color: #484848;
+}
+.detailedCarContainer p{
+    color: black;
+    font-weight: 200;
+}
+.detailContainer{
+    width: 60vw;
+    height: 55vh;
+    display: block;
+    margin: auto;
+    border: 0.215px solid gray;
+    border-radius: 18px;
+
+}
+.leftContainer img{
+    width: 300px;
+    height: 200px;
+}
+.leftContainer h4{
+    font-weight: bold;
+    color: #484848;
+    margin-left: 44px;
+}
+.rightContainer h2{
+    font-weight: 500;
+    color: black;
+}
+.detailContainer{
+    display: flex;
+    justify-content: space-around;
+}
+.rightContainer p{
+    margin-bottom:10px;
+}
+.rightContainer h3{
+    font-weight: 500;
+}
+.specificationContainer{
+    width: 60vw;
+    display: block;
+    margin: auto;
+}
+.specificationContainer h2{
+    font-weight: bold;
+    color: #484848;
+}
+
+.specification-container {
+    width: 80%;
+    max-width: 800px;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+.specs-table {
+    background-color: #F9F9F9;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.specs-table tr {
+    border-bottom: 1px solid #ddd;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+.specs-table tr:last-child {
+    border-bottom: none;
+}
+
+.specs-table td {
+    padding: 12px 15px;
+    vertical-align: middle;
+}
+
+.specs-table td:first-child {
+    font-weight: bold;
+}
+
+.specs-table td {
+    text-align: left;
+}
+
+.specs-table td:nth-child(2) {
+    text-align: right;
+}
+
+@media screen and (max-width: 600px) {
+    .specification-container {
+        width: 95%;
+    }
+
+    .specs-table td {
+        display: block;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .specs-table td:nth-child(2) {
+        margin-top: 10px;
+    }
+}

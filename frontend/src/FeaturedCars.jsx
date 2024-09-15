@@ -1,11 +1,18 @@
 import React, { useEffect } from "react"
 import { useState } from "react"
 import './FeaturedCars.css'
+import { useNavigate } from "react-router-dom"
 function FeaturedCars(){
     const [cars,setCars]=useState([])
     const [popularCars,setPopularCars]=useState([])
     const [upcomingCars,setUpcomingCars]=useState([])
     const [selectedTab, setSelectedTab] = useState('Trending');
+    const navigate=useNavigate()
+
+    const handleCheckPrice=(carName)=>{
+        const encodedCarName = encodeURIComponent(carName)
+        navigate(`car/${encodedCarName}`)
+    }
     function formatDate(dateStr) {
         const options = { day: 'numeric', month: 'long' };
         const date = new Date(dateStr);
@@ -51,7 +58,7 @@ function FeaturedCars(){
                         <h2>{car.car_name}</h2>
                         <p className="car-price">Rs. {car.car_price} Lakh onwards</p>
                         <p className="car-location">On-Road Price, {car.on_road_price}</p>
-                        <button className="price-check-btn">Check On-Road Price</button>
+                        <button className="price-check-btn" onClick={()=>handleCheckPrice(car.car_name)}>Check On-Road Price</button>
                     </div>
                 ));
             case 'Popular':
@@ -61,7 +68,7 @@ function FeaturedCars(){
                         <h2>{car.car_name}</h2>
                         <p className="car-price">Rs. {car.car_price} Lakh onwards</p>
                         <p className="car-location">On-Road Price, {car.on_road_price}</p>
-                        <button className="price-check-btn">Check On-Road Price</button>
+                        <button className="price-check-btn" onClick={()=>handleCheckPrice(car.car_name)}>Check On-Road Price</button>
                     </div>
                 ));
             case 'Upcoming':
@@ -70,7 +77,6 @@ function FeaturedCars(){
                         <img src={`http://localhost:8000${car.car_image}`} alt={car.car_name} />
                         <h2>{car.car_name}</h2>
                         <p className="car-price">Rs. {car.start_car_price}-{car.end_car_price} {car.type} {car.on_road_price}</p>
-                        <button className="price-check-btn">Check On-Road Price</button>
                     </div>
                 ));
             default:
