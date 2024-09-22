@@ -108,3 +108,15 @@
         margin-top: 10px;
     }
 }
+ul.list-group {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+li.list-group-item {
+    background-color: #f8f9fa;
+}
+
+li.list-group-item p {
+    margin-left: 20px;
+}

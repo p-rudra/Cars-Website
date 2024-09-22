@@ -23,9 +23,11 @@ class FeaturedCar(models.Model):
     engine = models.CharField(max_length=100,blank=True, null=True,default='')
 
     description = models.TextField(default='')
-
+    car_type = models.CharField(default='featured',max_length=80)
     def __str__(self):
         return self.car_name
+    
+    
 class PopularCar(models.Model):
     car_name=models.CharField(max_length=255)
     car_price=models.DecimalField(max_digits=10,decimal_places=2)
@@ -48,6 +50,7 @@ class PopularCar(models.Model):
     engine = models.CharField(max_length=100,blank=True, null=True,default='')
 
     description = models.TextField(default='')
+    car_type = models.CharField(default='popular',max_length=80)
     def __str__(self):
         return self.car_name
 
@@ -90,3 +93,22 @@ class Car(models.Model):
     type=models.CharField(max_length=255,default=' ')
     def __str__(self):
         return  self.name
+
+class User(models.Model):
+    username = models.CharField(unique=True,max_length=50,null=True)
+    password = models.CharField(max_length=100,null=True)
+    email = models.EmailField(null=True,unique=True) 
+
+class FeaturedCarReview(models.Model):
+    featured_car = models.ForeignKey(FeaturedCar, on_delete=models.CASCADE, related_name='reviews')
+    rating = models.IntegerField(choices=[(i, i) for i in range(1, 6)])
+    description = models.TextField()
+    def _str_(self):
+        return f"{self.featured_car.name} - {self.rating} Stars"
+    
+class PopularCarReview(models.Model):
+    popular_car = models.ForeignKey(PopularCar, on_delete=models.CASCADE, related_name='reviews')
+    rating = models.IntegerField(choices=[(i, i) for i in range(1, 6)])
+    description = models.TextField()
+    def _str_(self):
+        return f"{self.featured_car.name} - {self.rating} Stars"

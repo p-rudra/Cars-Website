@@ -1,7 +1,9 @@
 import React,{useEffect,useState} from "react"
 import { useParams } from "react-router-dom"
-import Navbar from "./Navbar"
+import Navbar1 from "./Navbar1"
 import './CarDetailPage.css'
+import Footer from './Footer'
+import SubmitReview  from "./SubmitReview"
 function CarDetailPage(){
     function parseCommaSeparatedNumber(value) {
         if (value && typeof value === 'string') {
@@ -189,11 +191,12 @@ function CarDetailPage(){
     }
     return(
         <>
-        <Navbar/>
+        <Navbar1/>
         <br />
-        <div className="detailedCarContainer">
-            <h2>{car.car_name}</h2>
-            <p>{car.description}</p>
+        <br />
+        <div className="detailedCarContainer p-3 border rounded shadow-sm mt-3">
+            <h2 className="text-primary">{car.car_name}</h2>
+            <p className="text-muted">{car.description}</p>
         </div>
         <br />
         <div className="detailContainer">
@@ -214,7 +217,30 @@ function CarDetailPage(){
         <div className="specificationContainer">
             <h2>{car.car_name} Specifications</h2>
             {specificationTable()}
+            <SubmitReview carId={car.id} carType={car.car_type}/>
+            <p className="text-primary fs-5">Average Rating: {car.average_rating}</p>
+            <h3 className="mt-4">Reviews:</h3>
+            <ul className="list-group">
+            {car.reviews && car.reviews.length > 0 ? (
+                car.reviews.map((review, index) => (
+                <li key={index} className="list-group-item d-flex align-items-center justify-content-between p-3 mb-2">
+                    <div className="d-flex flex-column flex-md-row align-items-center" style={{ width: '150px' }}>
+                    <strong>Rating:</strong> 
+                    <span className="badge bg-success rounded-pill ms-2">{review.rating}</span>
+                    </div>
+                    <p className="m-0 flex-grow-1 text-muted ms-md-3">{review.description}</p>
+                </li>
+                ))
+            ) : (
+                <li className="list-group-item text-center text-muted">No reviews available.</li>
+            )}
+            </ul>
+
+
         </div>
+        <br />
+        <br />
+        <Footer/>
         </>
     )
 }

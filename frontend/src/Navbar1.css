@@ -1,0 +1,29 @@
+.navbar {
+    box-shadow: 0 4px 2px -2px gray;
+    z-index: 1;
+  }
+  
+  .navbar-brand img {
+    margin-right: 10px;
+  }
+  
+  .navbar-nav .nav-item {
+    margin-left: 20px;
+  }
+  
+  .form-control {
+    width: 250px;
+  }
+  
+  .btn-outline-success {
+    border-color: #4CAF50;
+    color: #4CAF50;
+  }
+  
+  .btn-outline-success:hover {
+    background-color: #4CAF50;
+    color: white;
+  }
+  .signupBtn{
+    width: 120px;
+  }

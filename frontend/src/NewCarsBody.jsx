@@ -9,6 +9,7 @@ import manual from './assets/manual.svg';
 import suv from './assets/suv.svg';
 import axios from 'axios'
 import sedan from './assets/sedan.svg';
+import Footer from './Footer';
 function NewCarsBody(){
     const [selectedTab,setSelectedTab]=useState('BUDGET')
     const [selectedFuelType,setSelectedFuelType]=useState('')
@@ -17,7 +18,14 @@ function NewCarsBody(){
     const [selectedSeating, setSelectedSeating] = useState('');
     const [selectedBodyType, setSelectedBodyType] = useState('');
     const [cars, setCars] = useState([]);
-
+    let flag;
+    function check (){
+        if (cars.length>0){
+            return true
+        }else{
+            return false
+        }
+    }
     const fetchFilteredCars = async () => {
         const filters = {
             budget: selectedBudget,
@@ -29,9 +37,10 @@ function NewCarsBody(){
 
         try {
             const response = await axios.get('http://127.0.0.1:8000/api/cars/', {
-                params: filters
+                params: filters 
             });
             setCars(response.data);
+            flag=check()
         } catch (error) {
             console.error("Error fetching cars:", error);
         }
@@ -41,82 +50,167 @@ function NewCarsBody(){
         switch(selectedTab){
             case 'BUDGET':
                 return(
-                    <div className='buttonContainer'>
-                    <input type="radio" name="budget" value='500000' onChange={(e)=>setSelectedBudget(e.target.value)}/><button className='element-tab'>Under 5 Lakh</button>
-                    <input type="radio" name="budget" value='600000'onChange={(e)=>setSelectedBudget(e.target.value)} /><button className='element-tab'>Under 6 Lakh</button>
-                    <input type="radio" name="budget" value='700000'onChange={(e)=>setSelectedBudget(e.target.value)} /><button className='element-tab'>Under 7 Lakh</button>
-                    <input type="radio" name="budget" value='1000000' onChange={(e)=>setSelectedBudget(e.target.value)}/><button className='element-tab'>Under 10 Lakh</button>
-                    <input type="radio" name="budget" value='1500000' onChange={(e)=>setSelectedBudget(e.target.value)}/><button className='element-tab'>Under 15 Lakh</button>
-                    <input type="radio" name="budget" value='2000000' onChange={(e)=>setSelectedBudget(e.target.value)}/><button className='element-tab'>Under 20 Lakh</button>
-                    <input type="radio" name="budget" value='2500000' onChange={(e)=>setSelectedBudget(e.target.value)} /><button className='element-tab'>Under 25 Lakh</button>
-                    <input type="radio" name="budget" value='3000000' onChange={(e)=>setSelectedBudget(e.target.value)}/><button className='element-tab'>Under 30 Lakh</button>
-                    </div>
+                    <div class="radio-inputs">
+		            <label>
+			        <input class="radio-input" type="radio" name="budget" value='500000' onChange={(e)=>setSelectedBudget(e.target.value)}/>
+				<span class="radio-tile" >
+					<span class="radio-label">Under 5 Lakh</span>
+				</span>
+		</label>
+		<label>
+			<input  class="radio-input" type="radio" name="budget" value='600000' onChange={(e)=>setSelectedBudget(e.target.value)}/>
+			<span class="radio-tile">
+				<span class="radio-label">Under 6 Lakh</span>
+			</span>
+		</label>
+		<label>
+			<input class="radio-input" type="radio" name="budget" value='700000' onChange={(e)=>setSelectedBudget(e.target.value)}/>
+			<span class="radio-tile">
+				<span class="radio-label">Under 7 Lakh</span>
+			</span>
+		</label>
+        <label>
+			<input class="radio-input" type="radio" name="budget" value='1000000' onChange={(e)=>setSelectedBudget(e.target.value)}/>
+			<span class="radio-tile">
+				<span class="radio-label">Under 10 Lakh</span>
+			</span>
+		</label>
+        <label>
+			<input class="radio-input" type="radio" name="budget" value='1500000' onChange={(e)=>setSelectedBudget(e.target.value)}/>
+			<span class="radio-tile">
+				<span class="radio-label">Under 15 Lakh</span>
+			</span>
+		</label>
+        <label>
+			<input class="radio-input" type="radio" name="budget" value='2000000' onChange={(e)=>setSelectedBudget(e.target.value)}/>
+			<span class="radio-tile">
+				<span class="radio-label">Under 20 Lakh</span>
+			</span>
+		</label>
+        <label>
+			<input class="radio-input" type="radio" name="budget" value='2500000' onChange={(e)=>setSelectedBudget(e.target.value)}/>
+			<span class="radio-tile">
+				<span class="radio-label">Under 25 Lakh</span>
+			</span>
+		</label>
+        <label>
+			<input class="radio-input" type="radio" name="budget" value='3000000' onChange={(e)=>setSelectedBudget(e.target.value)}/>
+			<span class="radio-tile">
+				<span class="radio-label">Under 30 Lakh</span>
+			</span>
+		</label>
+</div>
                 )
             case 'FUEL TYPE':
                 return(
-                    <div className='fuel-type-container'>
-                        <input type="radio" name="fuel-type" value='Petrol' onChange={(e)=>setSelectedFuelType(e.target.value)} />
-                        <div className="fuel-type-item">
-                        <img src={petrol} alt="Petrol" className="fuel-icon"/>
-                        <span className="fuel-label">Petrol</span>
-                        </div>
-                        <input type="radio" name="fuel-type" value='Diesel' onChange={(e)=>setSelectedFuelType(e.target.value)}/>
-                        <div className="fuel-type-item">
-                            <img src={diesel} alt="Diesel" class="fuel-icon"/>
-                            <span className="fuel-label">Diesel</span>
-                            
-                        </div>
-                        <input type="radio" name="fuel-type" value='Electric' onChange={(e)=>setSelectedFuelType(e.target.value)}/>
-                        <div className="fuel-type-item">
-                            <img src={electric} alt="Electric" class="fuel-icon"/>
-                            <span className="fuel-label">Electric</span>
-                            
-                        </div>
-                        <input type="radio" name="fuel-type" value='Cng' onChange={(e)=>setSelectedFuelType(e.target.value)} />
-                        <div className="fuel-type-item">
-                            <img src={cng} alt="CNG" class="fuel-icon"/>
-                            <span className="fuel-label">CNG</span>
-
-                        </div>
-                    </div>
-                )
+                    <div class="radio-inputs">
+		<label>
+			<input class="radio-input" type="radio" name="fuel-type" value='Petrol' onChange={(e)=>setSelectedFuelType(e.target.value)} />
+				<span class="radio-tile">
+					<span class="radio-icon">
+                    <img src={petrol} alt="Petrol" className="fuel-icon"/>
+					</span>
+					<span class="radio-label">Petrol</span>
+				</span>
+		</label>
+		<label>
+			<input  class="radio-input" type="radio" name="fuel-type" value='Diesel' onChange={(e)=>setSelectedFuelType(e.target.value)}/>
+			<span class="radio-tile">
+				<span class="radio-icon">
+                <img src={diesel} alt="Diesel" class="fuel-icon"/>
+				</span>
+				<span class="radio-label">Diesel</span>
+			</span>
+		</label>
+		<label>
+			<input class="radio-input" type="radio" name="fuel-type" value='Electric' onChange={(e)=>setSelectedFuelType(e.target.value)} />
+			<span class="radio-tile">
+				<span class="radio-icon">
+    			<img src={electric} alt="Electric" class="fuel-icon"/>
+				</span>
+				<span class="radio-label">Electric</span>
+			</span>
+		</label>
+        <label>
+			<input class="radio-input" type="radio" name="fuel-type" value='Cng' onChange={(e)=>setSelectedFuelType(e.target.value)}/>
+			<span class="radio-tile">
+				<span class="radio-icon">
+    			<img src={cng} alt="CNG" class="fuel-icon"/>
+				</span>
+				<span class="radio-label">CNG</span>
+			</span>
+		</label>
+</div>
+                    )
                 case 'TRANSMISSION':
                     return(
-                        <div className='transmission-container'>
-                            <input type="radio" name="transmission" value='Automatic' onChange={(event)=> setSelectedTransmission(event.target.value)}/>
-                            <div className="transmission-type-item">
-                            <img src={automatic} alt="Automatic" className="transmission-icon"/>
-                            <span className="transmission-label">Automatic</span>
-                            </div>
-                            <input type="radio" name="transmission" value='Manual' onChange={(event)=> setSelectedTransmission(event.target.value)}/>
-                            <div className="transmission-type-item">
-                            <img src={manual} alt="Manual" className="transmission-icon"/>
-                            <span className="transmission-label">Manual</span>
-                            </div>
-                        </div>
+<div class="radio-inputs">
+		<label>
+			<input class="radio-input" type="radio" name="transmission" value='Automatic' onChange={(event)=> setSelectedTransmission(event.target.value)}/>
+				<span class="radio-tile">
+					<span class="radio-icon">
+                    <img src={automatic} alt="Automatic" className="transmission-icon"/>
+					</span>
+					<span class="radio-label">Automatic</span>
+				</span>
+		</label>
+		<label>
+			<input  class="radio-input" type="radio" name="transmission" value='Manual' onChange={(event)=> setSelectedTransmission(event.target.value)}/>
+			<span class="radio-tile">
+				<span class="radio-icon">
+                <img src={manual} alt="Manual" className="transmission-icon"/>
+				</span>
+				<span class="radio-label">Manual</span>
+			</span>
+		</label>
+</div>
                     )
                 case 'SEATING CAPACITY':
                     return(
-                        <div className='seating-type-container'>
-                           <input type="radio" name="seating" value='5' onChange={(event)=> setSelectedSeating(event.target.value)}/> <button className='element-tab'>5 Seater</button>
-                            <input type="radio" name="seating" value='7' onChange={(event)=> setSelectedSeating(event.target.value)}/><button  className='element-tab'>7 Seater</button>
-                            <input type="radio" name="seating" value='8' onChange={(event)=> setSelectedSeating(event.target.value)}/><button  className='element-tab' >8 Seater</button>
-                        </div>
+<div class="radio-inputs">
+		<label>
+			<input class="radio-input" type="radio" name="seating" value='5' onChange={(event)=> setSelectedSeating(event.target.value)}/>
+				<span class="radio-tile">
+					<span class="radio-label">5 Seater</span>
+				</span>
+		</label>
+		<label>
+			<input class="radio-input" type="radio" name="seating" value='7' onChange={(event)=> setSelectedSeating(event.target.value)}/>
+			<span class="radio-tile">
+				<span class="radio-label">7 Seater</span>
+			</span>
+		</label>
+		<label>
+			<input class="radio-input" type="radio"  name="seating" value='8' onChange={(event)=> setSelectedSeating(event.target.value)}/>
+			<span class="radio-tile">
+				<span class="radio-label">8 Seater</span>
+			</span>
+		</label>
+</div>
                     )
                 case 'BODY TYPE':
                     return(
-                        <div className='body-type-container'>
-                            <input type="radio" name="body" value='SUV' onChange={(event)=>setSelectedBodyType(event.target.value)}/>
-                            <div className="body-type-item">
-                            <img src={suv} alt="SUV" className="body-icon"/>
-                            <span className="body-label">SUV</span>
-                            </div>
-                            <input type="radio" name="body" value='SEDAN' onChange={(event)=>setSelectedBodyType(event.target.value)} />
-                            <div className="body-type-item">
-                            <img src={sedan} alt="SEDAN" className="body-icon"/>
-                            <span className="body-label">SEDAN</span>
-                            </div>
-                        </div>
+                        
+<div class="radio-inputs">
+		<label>
+			<input class="radio-input" type="radio" name="engine"/>
+				<span class="radio-tile">
+					<span class="radio-icon">
+                    <img src={suv} alt="SUV" className="body-icon"/>
+					</span>
+					<span class="radio-label">SUV</span>
+				</span>
+		</label>
+		<label>
+			<input  class="radio-input" type="radio" name="engine"/>
+			<span class="radio-tile">
+				<span class="radio-icon">
+                    <img src={sedan} alt="SEDAN" className="body-icon"/>
+				</span>
+				<span class="radio-label">Sedan</span>
+			</span>
+		</label>
+</div>
                     )
         }
     }
@@ -156,9 +250,12 @@ function NewCarsBody(){
                         ))}
                     </div>
                 ) : (
-                    <p>No cars found based on selected filters.</p>
+                    flag ? "":<p>No cars found on the based of particular filter</p>
                 )}
             </div>
+            <br />
+            <br />
+            <Footer/>
         </>
     )
 }

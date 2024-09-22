@@ -1,10 +1,10 @@
 import React from "react"
-import Navbar from "./Navbar"
+import Navbar1 from "./Navbar1"
 import NewCarsBody from "./NewCarsBody"
 function NewCarsPage(){
     return(
         <>
-            <Navbar/>
+            <Navbar1/>
             <NewCarsBody/>
         </>
     )

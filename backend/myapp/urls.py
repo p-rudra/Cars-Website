@@ -10,4 +10,7 @@ urlpatterns=[
     path('api/cars/',views.car_list,name='car-list'),
     path('api/car-details/<str:car_name>/',views.cars_detail,name='car-details'),
     path('api/p-car-details/<str:car_name>/',views.p_car_details,name='p-car-details'),
+    path('signup/',views.signup,name='signup'),
+    path('login/',views.login,name='login'),
+    path('review/',views.submit_review,name='review'),
 ]
